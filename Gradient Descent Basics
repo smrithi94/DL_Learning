@@ -1,0 +1,17 @@
+In gradient descent, we are trying to minimize the loss, or error between the actual and predicted values of the dependent variable. 
+We consider the MSE as a loss function typically because it is more meaningful when we take derivatives.
+    If we consider MAE, then taking derivatives becomes a problem when Y_pred = y the error becomes zero and it is not differentiable anymore since it is a constant.
+When we do a gradient descent, we try to plot the weights with respect to the loss function and see the slope of the curve. 
+    If the slope of the curve is negative then we try to increase the weights, else if the slope is positive we try to decrease the weights. 
+    In this case we try to reach a point where the error is at the global minimum.
+The speed of convergence is determined by the learning rate lambda. 
+    If the learning rate is too high, then there possibilities that the global minimum gets skipped. If the learning rate is too low, then the convergence will be very slow.
+The gradient descent always tries to take derivative of the cost function with respect to the weight values. 
+
+Local Minima vs Global Minima 
+In case of linear regression, the local minima = global minima since it is a convex function. 
+In case of neural networks since it is a non linear function, the local minima is not the same as the global minima, but in many cases, gradient descent has given good results for 
+local minima itself. 
+Overall, while theoretically concerning, local minima have not posed a major practical issue for training large-scale neural networks. 
+This understanding comes from both empirical studies and theoretical analyses of the loss landscapes in high dimensions, where local minima typically provide performance that is similar to the 
+global minimum even on unseen data.
