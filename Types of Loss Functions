@@ -1,1 +1,10 @@
+Loss function is the error function that is used to evaluate how our model is performing. The main goal of any algorithm in ML or DL is to 
+reduce the loss function. In neural networks, the following loss functions are used. 
+
+For regression tasks : we use Mean Squared Error (MSE) 
+    reasons - it is easily differentiable and has smoother gradients and it is differentiable at zero and it can help reach global minimum. 
+For classification : we use 
+    binary cross entropy calculated using 
+    Binary Cross-Entropy= −[ylog(y^)+(1−y)log(1−y^)]
+    for multiclass classification - with softmax - Categorical Cross-Entropy= − i=1∑n yi log(y^i)
 
