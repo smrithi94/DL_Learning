@@ -1,0 +1,50 @@
+🔹 1. Batch Gradient Descent (Standard Gradient Descent)
+Definition: The model computes the loss and gradients over the entire training dataset, and updates the weights once per epoch.
+
+Pros:
+
+Stable convergence
+
+Accurate gradient estimate
+
+Cons:
+
+Slow for large datasets
+
+Requires more memory
+
+Use Case: Best for small to medium-sized datasets
+
+🔹 2. Stochastic Gradient Descent (SGD)
+Definition: The weights are updated after every single training example.
+
+Pros:
+
+Very fast updates
+
+Helps escape local minima due to noise
+
+Cons:
+
+High variance — leads to noisy convergence
+
+May overshoot global minima or bounce around it
+
+Use Case: Large datasets, online learning
+
+🔹 3. Mini-Batch Gradient Descent
+Definition: A middle ground where the weights are updated after processing a small batch of samples (e.g., 32, 64, 128).
+
+Pros:
+
+Efficient and faster convergence
+
+Less noise than SGD
+
+Can leverage vectorized operations on GPUs
+
+Cons:
+
+Choice of batch size affects performance
+
+Use Case: Most widely used in deep learning frameworks (TensorFlow, PyTorch)
