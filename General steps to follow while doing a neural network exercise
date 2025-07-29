@@ -1,1 +1,43 @@
+While doing training of neural networks
+
+Install tensor flow 
+-- import tensorflow 
+-- from tensorflow import keras  ### high level API for creating neural networks 
+-- from keras import backend    ### abstraction layer for neural network backend 
+-- from keras.models import Sequential ### model for building NN sequentially 
+-- from keras.layers import Dense ### for creating connected neural nets layers 
+
+tf.keras.backend.clear_session() -- clears current session and resets all models previously created freeing up memory 
+While building models 
+   -- Initialize models 
+   -- Input layer is already set. 
+      model.add(Dense(num_classes, activation ='softmax', input_dim = ) where num_classes is the dimensionality of the output class and 
+      activation function to use, if nothing is specified no activation is applied. 
+If the model is sequential we do not need to add an explicit input layer. Once we initialize the neural network Sequential() it automatically 
+assigns default input layers. We just define the output layer and connect it to the predefined layer. 
+
+-- after initializing we add the layers and we compile the model using
+model.compile( loss = 'loss function', optimizer = 'sgd', metrics = ["accuracy"] )
+
+-- define the batch size and epoch. 
+   Batch Size :The number of training samples (records) processed before the model's weights are updated.
+               Instead of updating weights after each individual sample (stochastic gradient descent) or 
+               after the entire dataset (full batch gradient descent), we split the dataset into mini-batches.
+   Epoch      :the number of iterations to complete the entire dataset end to end. If you train a model for 10 epochs then the model has 
+               seen the entire dataset 10 times. 
+-- fit the model 
+-- plot the loss and accuuracy 
+To improve performance, we try to add hidden layers or increase the number of epoch as the model learns better when we have more iterations 
+of the data end to end. 
+We can add activation function
+  model.add(Dense(num_classes, activation = can be sigmoid, activation, tanh, ReLU, input_dim = )
+  for output layer the activation function is mostly sigmoid or softmax or linear 
+
+
+
+
+
+
+
+
 
