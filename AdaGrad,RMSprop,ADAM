@@ -1,0 +1,54 @@
+AdaGrad
+🔹 Key Idea:
+Instead of using a single, fixed learning rate η, AdaGrad adjusts the learning rate based on the history of gradients.
+-Parameters with large historical gradients get smaller learning rates.
+-Parameters with small historical gradients get larger learning rates.
+This is useful when:
+Some features are sparse (infrequent)
+Some features dominate the gradient
+
+For each parameter 
+θi, the update rule is:
+𝜃𝑖 = 𝜃𝑖 −𝜂 /sqrt(𝐺𝑖+𝜖)⋅𝑔𝑖
+
+Where:
+η = initial learning rate
+gi = current gradient for parameter 
+T∑t=1 𝑔𝑖,𝑡 ^2 = cumulative sum of squared past gradients
+ϵ = small value to avoid division by zero (e.g., 10 ^−8)
+
+RMSprop 
+RMSprop is an optimization algorithm designed to fix a major limitation of AdaGrad:
+➡️ In AdaGrad, the learning rate keeps decreasing because the sum of squared gradients grows indefinitely.
+
+🔹 What RMSprop Does Differently:
+Instead of accumulating all past squared gradients, RMSprop keeps a moving (exponentially weighted) average of the squared gradients.
+This helps prevent the learning rate from shrinking too much, and keeps training fast and stable.
+
+E[g^2]t = α⋅E[g^2]t−1 +(1−α)⋅gt^2
+​
+𝜃𝑡 = 𝜃𝑡−1 − 𝜂 /sqrt(𝐸[𝑔^2]𝑡) + 𝜖 ⋅𝑔𝑡
+
+Where:
+η = learning rate
+𝑔t = current gradient
+𝐸[𝑔^2]𝑡 = exponentially weighted average of squared gradients
+α = decay rate, usually around 0.9
+ϵ = small value to avoid division by zero
+
+Difference between RMSprop and SGD with Momentum
+
+| Feature            | **SGD with Momentum**                     | **RMSprop**                                    |
+| ------------------ | ----------------------------------------- | ---------------------------------------------- |
+| What it remembers  | **Direction you're going** (velocity)     | **How bumpy** the path has been (variance)     |
+| What it helps with | **Speeding up** and **avoiding zig-zags** | **Controlling step size** to prevent stumbling |
+| Step size behavior | Same for all directions                   | Different for each direction (auto-adjusted)   |
+
+ADAM 
+🧠 Adam Optimizer = RMSprop + Momentum
+Adam (short for Adaptive Moment Estimation) combines the best of both worlds:
+| Component                  | Comes From        | What It Does                                                                           |
+| -------------------------- | ----------------- | -------------------------------------------------------------------------------------- |
+| **Momentum**               | SGD with Momentum | Keeps track of the **direction** and builds **speed** in the right direction           |
+| **Adaptive Learning Rate** | RMSprop           | Adjusts the **step size** individually for each parameter based on how bumpy it's been |
+
