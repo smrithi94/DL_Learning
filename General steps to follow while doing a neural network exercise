@@ -25,6 +25,8 @@ model.compile( loss = 'loss function', optimizer = 'sgd', metrics = ["accuracy"]
                after the entire dataset (full batch gradient descent), we split the dataset into mini-batches.
    Epoch      :the number of iterations to complete the entire dataset end to end. If you train a model for 10 epochs then the model has 
                seen the entire dataset 10 times. 
+   Iterations :the number of iterations needed to complete 1 epoch. Lets say N is 1000 and batch size is 200 we need 5 iterations to complete 1 epoch. 
+
 -- fit the model 
 -- plot the loss and accuuracy 
 To improve performance, we try to add hidden layers or increase the number of epoch as the model learns better when we have more iterations 
