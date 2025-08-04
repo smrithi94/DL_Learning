@@ -17,9 +17,27 @@ gi = current gradient for parameter
 T∑t=1 𝑔𝑖,𝑡 ^2 = cumulative sum of squared past gradients
 ϵ = small value to avoid division by zero (e.g., 10 ^−8)
 
+Notes:
+- technique for updating learning rate.  
+- basically how it functions is it takes a sum of squares of all the gradients in the past and divides the learning rate
+  by square root of the sum of squares + a small value epsilon which is used to avoid the division by zero. 
+- if the gradient is too frequent and large, it slows down and the learning rate shrinks. 
+- if the gradient is infrequent or small it increases the learning rate for faster convergence. 
+
+One problem with this is that since it is taking the history of gradients it works fine for first few gradients, 
+if the number of gradients increases, the sum of squares for all the gradient gives a very large value.
+Hence this may lead to a learning rate decay problem. 
+
 RMSprop 
 RMSprop is an optimization algorithm designed to fix a major limitation of AdaGrad:
 ➡️ In AdaGrad, the learning rate keeps decreasing because the sum of squared gradients grows indefinitely.
+
+🔧 Why this is helpful in optimization?
+In RMSprop:
+Instead of tracking all gradients (like AdaGrad),
+We use a moving average of recent squared gradients,
+So the learning rate adjusts based on recent activity — not overwhelmed by very old data.
+
 
 🔹 What RMSprop Does Differently:
 Instead of accumulating all past squared gradients, RMSprop keeps a moving (exponentially weighted) average of the squared gradients.
@@ -35,6 +53,14 @@ Where:
 𝐸[𝑔^2]𝑡 = exponentially weighted average of squared gradients
 α = decay rate, usually around 0.9
 ϵ = small value to avoid division by zero
+
+📌 What does this do?
+If 
+α=0.9, then:
+90% of the average comes from the past.
+10% comes from the current value.
+So it updates gradually, but it still reacts to recent changes.
+Over time, old values fade out — hence, “exponentially decaying.”
 
 Difference between RMSprop and SGD with Momentum
 
