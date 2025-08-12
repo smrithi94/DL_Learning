@@ -1,0 +1,11 @@
+- Build a base model and try to see how it performs based on batch size and epochs. We try to keep batch size and epochs the same. 
+- Check the error and accuracy for training and validation set. 
+- If we notice overfitting we try out the following. 
+   - SGD with momentum , change the momentum as well. 
+   - Increase or decrease the learning rates, look for smoother convergences. 
+   - Try Adaptive Learning rate (ADAM with multiple learning rate) 
+  Keep the learning rate same and try 
+   - Dropout (multiple percentages)
+   - Batch Normalization
+   - Change the initialization techniques. 
+   - Try batch normalization and dropout together. 
